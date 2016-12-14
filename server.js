@@ -20,7 +20,9 @@ server.get('/user_token', (req, res) => {
   const foundUser = users.find((u) => u.username === user.name && u.password === user.pass)
   if (foundUser) {
     const token = jwtBase.sign({
-      id: foundUser.id
+      id: foundUser.id,
+      username: foundUser.username,
+      role: foundUser.role
     }, secret)
     res.json({
       username: foundUser.username,
@@ -42,11 +44,18 @@ server.use(jwt({ secret: secret }).unless({
 // To handle POST, PUT and PATCH you need to use a body-parser
 // You can use the one used by JSON Server
 server.use(jsonServer.bodyParser)
+
+// Restrict access to routes based on role
 server.use((req, res, next) => {
+  let userHasPermission = true
   if (req.method === 'POST') {
-    req.body.createdAt = Date.now()
+    // Only admin can add games
+    if (req.path === '/games' && req.user.role !== 'admin') {
+      userHasPermission = false
+    }
   }
-  next()
+  if (userHasPermission) next()
+  else res.status(403).json({error: 'No permission'})
 })
 
 // Use default router

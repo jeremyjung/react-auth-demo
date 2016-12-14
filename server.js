@@ -10,9 +10,6 @@ const jwtBase = require('jsonwebtoken')
 // Set default middlewares
 server.use(middlewares)
 
-// Add custom routes before JSON Server router
-server.get('/echo', (req, res) => res.jsonp(req.query))
-
 server.get('/user_token', (req, res) => {
   const user = auth(req)
   const db = router.db
@@ -32,6 +29,7 @@ server.get('/user_token', (req, res) => {
   } else res.status(401).json({error: 'Incorrect credentials'})
 })
 
+// Make certain routes available to anonymous users
 server.use(jwt({ secret: secret }).unless({
   path: [
     '/user_token',

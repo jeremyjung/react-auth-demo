@@ -1,0 +1,79 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "fakeuser",
+      "password": "fakepassword",
+      "role": "user"
+    },
+    {
+      "id": 2,
+      "username": "fpsfan",
+      "password": "fakepassword",
+      "role": "user"
+    },
+    {
+      "id": 3,
+      "username": "admin",
+      "password": "password",
+      "role": "admin"
+    }
+  ],
+  "games": [
+    {
+      "id": 1,
+      "name": "Overwatch"
+    },
+    {
+      "name": "Final Fantasy XV",
+      "createdAt": 1481177929082,
+      "id": 3
+    },
+    {
+      "name": "The Last Guardian",
+      "createdAt": 1481178300395,
+      "id": 4
+    },
+    {
+      "name": "The Last Guy",
+      "createdAt": 1481404108069,
+      "id": 5
+    },
+    {
+      "name": "Battlefield 2142",
+      "createdAt": 1481480704497,
+      "id": 6
+    },
+    {
+      "name": "Persona 4",
+      "createdAt": 1481482006484,
+      "id": 7
+    },
+    {
+      "name": "Spelunky",
+      "createdAt": 1481609763326,
+      "id": 8
+    }
+  ],
+  "playlists": [
+    {
+      "id": 1,
+      "user": 1,
+      "name": "Delayed Games",
+      "games": [
+        3,
+        4
+      ]
+    },
+    {
+      "id": 2,
+      "user": 2,
+      "name": "Old Games",
+      "games": [
+        5,
+        6,
+        7
+      ]
+    }
+  ]
+}

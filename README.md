@@ -8,7 +8,7 @@ This app stores a list of games and has lists of games that are associated with 
 
 ### Running locally
 ```
-git clone git@github.com:endlesscombo/react-auth-demo.git
+git clone git@github.com:jeremyjung/react-auth-demo.git
 cd react-auth-demo
 npm install
 cd client

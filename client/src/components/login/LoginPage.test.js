@@ -7,7 +7,4 @@ it('renders without crashing', () => {
     loggedIn: false
   }}
   mount(<LoginPage location={jest.fn()} />, { context })
-  // Comment out this test, need to mock local storage
-  // const div = document.createElement('div');
-  // ReactDOM.render(<App />, div);
 })

@@ -5,8 +5,8 @@
 This is a simple example of authentication using React with a json-server backend.  The application presents a login page as well as both public and protected routes.  The main purpose of this application is to demonstrate a basic login flow and how to restrict routes or change data based on the logged in user.
 
 This app stores a list of games.
-1.  Anonymous users are allowed to view the list of games.
-2.	Normal users are also allowed to access the "protected" route.
+1.  Anonymous users are allowed to view the home, about, and login pages.
+2.	Normal users are also allowed to access the games route.
 3.  Admin users are allowed to create or delete games.
 
 ### Running locally
@@ -20,7 +20,7 @@ cd ..
 npm start
 ```
 
-Open the app in your browser of choice at http://localhost:3000.  To quit, you'll have to hit ctrl-c twice.
+Open the app in your browser of choice at http://localhost:3000.  If you use Chrome, the debugger will use source maps to show individual files instead of just seeing the page as a single bundled file.  To quit, you'll have to hit ctrl-c twice.
 
 ### Authentication details
 The application sends a basic http authentication request to the `/user_token` endpoint.  If the credentials are incorrect, a 401 status code will be returned.  If successful, a json payload will be returned in the following format:

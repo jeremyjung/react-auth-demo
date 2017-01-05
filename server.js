@@ -10,10 +10,12 @@ const jwtBase = require('jsonwebtoken')
 // Set default middlewares
 server.use(middlewares)
 
+// Route to issue JWT when a user logs in with basic authentication
 server.get('/user_token', (req, res) => {
   const user = auth(req)
   const db = router.db
   const users = db.get('users').value()
+  // This is a naive way to validate username and password, the password should be hashed
   const foundUser = users.find((u) => u.username === user.name && u.password === user.pass)
   if (foundUser) {
     const token = jwtBase.sign({
@@ -34,7 +36,6 @@ server.use(jwt({ secret: secret }).unless({
   path: [
     '/user_token',
     { url: '/games', methods: ['GET'] },
-    { url: '/playlists', methods: ['GET'] },
     { url: '/users', methods: ['GET'] }
   ]
 }))
@@ -46,8 +47,8 @@ server.use(jsonServer.bodyParser)
 // Restrict access to routes based on role
 server.use((req, res, next) => {
   let userHasPermission = true
-  if (req.method === 'POST') {
-    // Only admin can add games
+  if (req.method === 'POST' || req.method === 'DELETE') {
+    // Only admin can add or delete games
     if (req.path === '/games' && req.user.role !== 'admin') {
       userHasPermission = false
     }

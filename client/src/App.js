@@ -7,8 +7,6 @@ import NotFoundPage from './components/NotFoundPage'
 import LoginPage from './components/login/LoginPage'
 import ProtectedPage from './components/protected/ProtectedPage'
 import GamesPage from './components/games/GamesPage'
-import PlaylistsPage from './components/playlists/PlaylistsPage'
-import MyPlaylistsPage from './components/playlists/MyPlaylistsPage'
 import TopBar from './components/layout/TopBar'
 import MatchWhenAuthorized from './components/MatchWhenAuthorized'
 import * as authentication from './services/authentication'
@@ -81,8 +79,6 @@ class App extends React.Component {
               render={(props) => <LoginPage {...props} login={this.login} />}
             />
             <Match pattern='/games' component={GamesPage} />
-            <Match pattern='/playlists' component={PlaylistsPage} />
-            <MatchWhenAuthorized pattern='/myplaylists' component={MyPlaylistsPage} />
             <Match pattern='/notloggedin'
               render={(props) => <LoginPage {...props} login={this.login} />}
             />

@@ -31,14 +31,14 @@ server.get('/user_token', (req, res) => {
   } else res.status(401).json({error: 'Incorrect credentials'})
 })
 
-// Make certain routes available to anonymous users
-server.use(jwt({ secret: secret }).unless({
-  path: [
-    '/user_token',
-    { url: '/games', methods: ['GET'] },
-    { url: '/users', methods: ['GET'] }
-  ]
-}))
+// Require user to be logged in to hit server routes
+// Make user_token route available to anonymous users
+server.use(jwt({ secret: secret })
+      .unless({
+        path: [
+          '/user_token'
+        ]
+      }))
 
 // To handle POST, PUT and PATCH you need to use a body-parser
 // You can use the one used by JSON Server

@@ -17,7 +17,6 @@ const TopBar = ({logout}, context) => (
           !context.auth.loggedIn &&
           <Link className='pseudo button' to='/login'>Login</Link>
         }
-        <Link className='pseudo button' to='/protected'>Protected</Link>
         <SignOutButton logout={logout} />
       </div>
     </nav>

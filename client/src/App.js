@@ -5,7 +5,6 @@ import HomePage from './components/home/HomePage'
 import AboutPage from './components/about/AboutPage'
 import NotFoundPage from './components/NotFoundPage'
 import LoginPage from './components/login/LoginPage'
-import ProtectedPage from './components/protected/ProtectedPage'
 import GamesPage from './components/games/GamesPage'
 import TopBar from './components/layout/TopBar'
 import MatchWhenAuthorized from './components/MatchWhenAuthorized'
@@ -78,12 +77,10 @@ class App extends React.Component {
             <Match pattern='/login'
               render={(props) => <LoginPage {...props} login={this.login} />}
             />
-            <Match pattern='/games' component={GamesPage} />
+            <MatchWhenAuthorized pattern='/games' component={GamesPage} />
             <Match pattern='/notloggedin'
               render={(props) => <LoginPage {...props} login={this.login} />}
             />
-
-            <MatchWhenAuthorized pattern='/protected' component={ProtectedPage} />
 
             <Miss component={NotFoundPage} />
           </div>

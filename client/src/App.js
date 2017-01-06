@@ -7,7 +7,8 @@ import NotFoundPage from './components/NotFoundPage'
 import LoginPage from './components/login/LoginPage'
 import GamesPage from './components/games/GamesPage'
 import TopBar from './components/layout/TopBar'
-import MatchWhenAuthorized from './components/MatchWhenAuthorized'
+import MatchWhenAuthorized from './components/router/MatchWhenAuthorized'
+import MatchWithProps from './components/router/MatchWithProps'
 import * as authentication from './services/authentication'
 import '../node_modules/picnic/picnic.min.css'
 import './App.css'
@@ -74,14 +75,9 @@ class App extends React.Component {
           <div className='mainbody'>
             <Match exactly pattern='/' component={HomePage} />
             <Match pattern='/about' component={AboutPage} />
-            <Match pattern='/login'
-              render={(props) => <LoginPage {...props} login={this.login} />}
-            />
+            <MatchWithProps pattern='/login' component={LoginPage} props={{ login: this.login }} />
+            <MatchWithProps pattern='/notloggedin' component={LoginPage} props={{ login: this.login }} />
             <MatchWhenAuthorized pattern='/games' component={GamesPage} />
-            <Match pattern='/notloggedin'
-              render={(props) => <LoginPage {...props} login={this.login} />}
-            />
-
             <Miss component={NotFoundPage} />
           </div>
         </div>

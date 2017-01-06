@@ -4,10 +4,13 @@
 
 This is a simple example of authentication using React with a json-server backend.  The application presents a login page as well as both public and protected routes.  The main purpose of this application is to demonstrate a basic login flow and how to restrict routes or change data based on the logged in user.
 
-This app stores a list of games.
+This app stores a list of games with the following restrictions:
+
 1.  Anonymous users are allowed to view the home, about, and login pages.
 2.	Normal users are also allowed to access the games route.
 3.  Admin users are allowed to create or delete games.
+
+React Router v4 is used as the router.  If you are not familiar with React Router v4, I recommend you take a look at some of the samples in their [documentation](https://react-router.now.sh).
 
 ### Running locally
 ```
@@ -20,7 +23,11 @@ cd ..
 npm start
 ```
 
-Open the app in your browser of choice at http://localhost:3000.  If you use Chrome, the debugger will use source maps to show individual files instead of just seeing the page as a single bundled file.  To quit, you'll have to hit ctrl-c twice.
+Open the app in your browser of choice at http://localhost:3000.  If you use Chrome, the debugger will use source maps to show individual files instead of just seeing the page as a single bundled file.
+
+If another application is using port 3000, either close the app or look at the console to see if an alternate port has been selected.
+
+To quit, you'll have to hit ctrl-c twice.
 
 ### Authentication details
 The application sends a basic http authentication request to the `/user_token` endpoint.  If the credentials are incorrect, a 401 status code will be returned.  If successful, a json payload will be returned in the following format:
@@ -37,3 +44,14 @@ All subsequent requests should be made by filling in the Authorization header ta
 
 ### API details
 Only admin users can use POST or DELETE on the /games route.
+
+### Custom router components
+Two custom components are used to assist with routing:
+
+1.  MatchWithProps
+	* React Router v4's match component makes it a little verbose to pass in props.  This wrapper component makes it possible to pass props to the component within by simply using a props object
+	* This component was inspired by this [post](https://github.com/ReactTraining/react-router/issues/4293).
+2.  MatchWhenAuthorized
+	* This component restricts a route by showing the login page whenever a user attempts to view a route without being logged in
+	* It looks at the context.auth.loggedIn boolean to determine if the user is logged in or not
+	* This component was inspired by the authorization example in the [React Router documentation](https://react-router.now.sh/auth-workflow).

@@ -27,8 +27,6 @@ Open the app in your browser of choice at http://localhost:3000.  If you use Chr
 
 If another application is using port 3000, either close the app or look at the console to see if an alternate port has been selected.
 
-To quit, you'll have to hit ctrl-c twice.
-
 ### Authentication details
 The application sends a basic http authentication request to the `/user_token` endpoint.  If the credentials are incorrect, a 401 status code will be returned.  If successful, a json payload will be returned in the following format:
 

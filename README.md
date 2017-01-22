@@ -1,4 +1,4 @@
-## Simple Auth example
+## Simple React Router v4 Auth example
 
 ### Description
 
@@ -10,7 +10,7 @@ This app stores a list of games with the following restrictions:
 2.	Normal users are also allowed to access the games route.
 3.  Admin users are allowed to create or delete games.
 
-React Router v4 is used as the router.  If you are not familiar with React Router v4, I recommend you take a look at some of the samples in their [documentation](https://react-router.now.sh).
+If you are not familiar with React Router v4, I recommend you take a look at some of the samples in their [documentation](https://react-router.now.sh).
 
 ### Running locally
 ```

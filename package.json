@@ -5,7 +5,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "run-p server client",
+    "server": "node server.js",
+    "client": "node client.js"
   },
   "author": "",
   "license": "ISC",
@@ -20,12 +22,7 @@
       "node"
     ]
   },
-  "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "node server.js",
-    "client": "node client.js"
-  },
   "devDependencies": {
-    "concurrently": "^3.1.0"
+    "npm-run-all": "^4.0.1"
   }
 }

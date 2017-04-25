@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Game from './Game'
 
 const GameList = ({games, onDelete, userCanEditGames}) => (
@@ -10,9 +11,9 @@ const GameList = ({games, onDelete, userCanEditGames}) => (
 )
 
 GameList.propTypes = {
-  games: React.PropTypes.array.isRequired,
-  onDelete: React.PropTypes.func,
-  userCanEditGames: React.PropTypes.bool
+  games: PropTypes.array.isRequired,
+  onDelete: PropTypes.func,
+  userCanEditGames: PropTypes.bool
 }
 
 export default GameList

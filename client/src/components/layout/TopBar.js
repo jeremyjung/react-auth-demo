@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import SignOutButton from './SignOutButton'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 
 const TopBar = ({logout}, context) => (
   <div>
@@ -24,14 +25,14 @@ const TopBar = ({logout}, context) => (
 )
 
 TopBar.contextTypes = {
-  auth: React.PropTypes.shape({
-    loggedIn: React.PropTypes.bool,
-    username: React.PropTypes.string
+  auth: PropTypes.shape({
+    loggedIn: PropTypes.bool,
+    username: PropTypes.string
   })
 }
 
 TopBar.propTypes = {
-  logout: React.PropTypes.func
+  logout: PropTypes.func
 }
 
 export default TopBar

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Redirect } from 'react-router'
 import LoginForm from './LoginForm'
 
@@ -44,11 +45,11 @@ class LoginPage extends React.Component {
 }
 
 LoginPage.contextTypes = {
-  auth: React.PropTypes.object
+  auth: PropTypes.object
 }
 
 LoginPage.propTypes = {
-  login: React.PropTypes.func
+  login: PropTypes.func
 }
 
 export default LoginPage

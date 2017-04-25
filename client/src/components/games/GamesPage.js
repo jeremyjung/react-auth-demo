@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import * as gameApi from '../../services/gameApi'
 import AddGameForm from './AddGameForm'
 import GamesList from './GamesList'
@@ -57,7 +58,7 @@ class GamesPage extends Component {
 };
 
 GamesPage.contextTypes = {
-  auth: React.PropTypes.object
+  auth: PropTypes.object
 }
 
 export default GamesPage

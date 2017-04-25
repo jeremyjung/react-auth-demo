@@ -3,10 +3,11 @@
 // Otherwise, routes them to the login page
 
 import React from 'react'
-import { Match, Redirect } from 'react-router'
+import PropTypes from 'prop-types'
+import { Route, Redirect } from 'react-router-dom'
 
-const MatchWhenAuthorized = ({ component: Component, ...rest }, context) => (
-  <Match {...rest} render={props => (
+const PrivateRoute = ({ component: Component, ...rest }, context) => (
+  <Route {...rest} render={props => (
     context.auth.loggedIn ? (
       <Component {...props} />
     ) : (
@@ -18,8 +19,8 @@ const MatchWhenAuthorized = ({ component: Component, ...rest }, context) => (
   )} />
 )
 
-MatchWhenAuthorized.contextTypes = {
-  auth: React.PropTypes.object
+PrivateRoute.contextTypes = {
+  auth: PropTypes.object
 }
 
-export default MatchWhenAuthorized
+export default PrivateRoute

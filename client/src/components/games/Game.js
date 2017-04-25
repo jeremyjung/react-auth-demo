@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Game = ({game, onDelete, userCanEditGames}) => (
   <div>
@@ -15,9 +16,9 @@ const Game = ({game, onDelete, userCanEditGames}) => (
 )
 
 Game.propTypes = {
-  game: React.PropTypes.object.isRequired,
-  onDelete: React.PropTypes.func,
-  userCanEditGames: React.PropTypes.bool
+  game: PropTypes.object.isRequired,
+  onDelete: PropTypes.func,
+  userCanEditGames: PropTypes.bool
 }
 
 export default Game

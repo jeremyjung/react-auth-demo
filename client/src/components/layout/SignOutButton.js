@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const SignOutButton = ({logout}, context) => (
       context.auth.loggedIn ? (
@@ -9,12 +10,12 @@ const SignOutButton = ({logout}, context) => (
 )
 
 SignOutButton.contextTypes = {
-  router: React.PropTypes.object,
-  auth: React.PropTypes.object
+  router: PropTypes.object,
+  auth: PropTypes.object
 }
 
 SignOutButton.propTypes = {
-  logout: React.PropTypes.func.isRequired
+  logout: PropTypes.func.isRequired
 }
 
 export default SignOutButton
